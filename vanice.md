@@ -1,6 +1,6 @@
 # Vanice
 
-A character set and encoding for displaying public keys using an ambiguous alphabet and additional emoji set. Allowing for concise displaying of vanity names within public keys. And brute force searching for any desired name.
+A character set and encoding for displaying public keys using an unambiguous alphabet and an additional emoji set. This allows for concise display of vanity names within public keys and brute force searching for any desired name.
 
 ## Character set
 | index | prime | secondary | emoji |
@@ -39,14 +39,14 @@ A character set and encoding for displaying public keys using an ambiguous alpha
 | 31 | Y | y | ⏰ |
 
 ## Computation
-- convert vanity name to prime name
-- generate Schnorr key pair
-- encode public key to base32 prime characters (prime key)
-- check if prime key starts with prime name
-when match found:
+- Convert vanity name to prime name
+- Generate Schnorr key pair
+- Encode public key to base32 prime characters (prime key)
+- Check if prime key starts with prime name
+When a match is found:
 - SHA256 digest prime key (hash)
-- encode hash to base32 emojis 
-- append first n emojis to vanity name (n = 10 - length(vanity name) minimum 3)
+- Encode hash to base32 emojis 
+- Append the first n emojis to the vanity name (n = 10 - length(vanity name), minimum 3)
 
 ## Example
 
@@ -88,15 +88,15 @@ Calculations
 | 12     | 32<sup>12</sup> | 1_152_921_504_606_847_000
 | 13     | 32<sup>13</sup> | 3.69e19
 | 14     | 32<sup>14</sup> | 1.18e21
-| 15     | 32<sup>15</sup> | 3,78e22
+| 15     | 32<sup>15</sup> | 3.78e22
 | 16     | 32<sup>16</sup> | 1.21e24
 
 ## Outsource searching
 
-When using XPubs derived from a seed, it's possible to outsource the searching of vanity names without having to reveal the seed. 2_147_483_648 public keys can be derived per single XPub. And also 2_147_483_648 XPubs can be created from a single seed. That means on average one XPub will reveal any 6 letter name, and a single seed to contain any 12 letter name.
+When using XPubs derived from a seed, it's possible to outsource the searching of vanity names without having to reveal the seed. 2,147,483,648 public keys can be derived per single XPub. And also 2,147,483,648 XPubs can be created from a single seed. That means on average one XPub will reveal any 6-letter name, and a single seed can contain any 12-letter name.
 
 ## To be decided
-- final character set
-- final emoji set, plus order (indices)
-- recommended length of fingerprint / total length (vanity name + fingerprint)
-- seperator character between name and fingerprint?
+- Final character set
+- Final emoji set, plus order (indices)
+- Recommended length of fingerprint / total length (vanity name + fingerprint)
+- Separator character between name and fingerprint?
