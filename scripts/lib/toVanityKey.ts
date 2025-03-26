@@ -21,7 +21,7 @@ export default async (vanity: VanityName, primeKey: PrimeKey, emojiLength?: numb
   if (isPrime(primeKey) === false) {
     throw new Error(`Not a valid prime key: ${ primeKey }`)
   }
-  const l = emojiLength ?? (10 - vanity.length >= 3) ? 10 - vanity.length : 3
+  const l = emojiLength ?? ((10 - vanity.length >= 3) ? 10 - vanity.length : 3)
   const prime = encodeToPrime(await hashPrimeKey(primeKey))
   const emojis = toEmojis(prime.substring(0, l))
   return `${ vanity }${ emojis }`
