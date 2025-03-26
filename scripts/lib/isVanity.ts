@@ -4,6 +4,5 @@ const vanityChars = characters.reduce((acc, cur) => acc + cur.prime + cur.second
 const regex = new RegExp(`^[${ vanityChars }]+$`)
 
 export default (str: string) => {
-  console.log(regex)
   return regex.test(str)
 }
