@@ -51,6 +51,7 @@ When a match is found:
 ## Example
 
 ```
+vanity name: Vani
 private key: Uint8Array(32) [
    23, 230, 166, 137,  45, 132,  95, 107,
   110, 232, 219,  95,  58,  47, 235,   8,
@@ -64,8 +65,8 @@ public key: Uint8Array(32) [
    24, 210,  48, 167, 149, 148, 251,
   229,  78, 112,  73
 ]
-VAN178EV4SK2K8FXVXW42NE35JBY7VCUWGCD4C57JPAFQSAEE14G
-Vani🚗☀️⭐👍
+prime key: VAN178EV4SK2K8FXVXW42NE35JBY7VCUWGCD4C57JPAFQSAEE14G
+vanity key: Vani🚗☀️⭐👍
 ```
 
 ## Calculations
@@ -99,4 +100,3 @@ When using XPubs derived from a seed, it's possible to outsource the searching o
 - Final character set
 - Final emoji set, plus order (indices)
 - Recommended length of fingerprint / total length (vanity name + fingerprint)
-- Separator character between name and fingerprint?
