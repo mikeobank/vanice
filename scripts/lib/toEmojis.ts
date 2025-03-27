@@ -1,5 +1,5 @@
 import characters from "../characters.json" with { type: "json" }
-import { type Prime, Emojis } from "./toVanityKey"
+import { type Prime, Emojis } from "./toVanityKey.ts"
 
 export default (str: Prime) : Emojis => {
   const regexes: [RegExp, string][] = characters

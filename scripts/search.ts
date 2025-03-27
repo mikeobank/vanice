@@ -1,8 +1,8 @@
-import vanityToPrime from "./lib/vanityToPrime"
-import generateKeyPair, { type PrivateKey, PublicKey } from "./lib/generateKeyPair"
-import encodeToPrime from "./lib/encodeToPrime"
-import toVanityKey, { type PrimeKey } from "./lib/toVanityKey"
-import isVanity from "./lib/isVanity"
+import vanityToPrime from "./lib/vanityToPrime.ts"
+import generateKeyPair, { type PrivateKey, PublicKey } from "./lib/generateKeyPair.ts"
+import encodeToPrime from "./lib/encodeToPrime.ts"
+import toVanityKey, { type PrimeKey } from "./lib/toVanityKey.ts"
+import isVanity from "./lib/isVanity.ts"
 
 (async () => {
   const vanity = Deno.args[0]

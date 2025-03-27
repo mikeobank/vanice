@@ -1,5 +1,5 @@
 import { base32crockford } from "jsr:@scure/base"
-import { type PrimeKey } from "./toVanityKey"
+import { type PrimeKey } from "./toVanityKey.ts"
 
 const crockford2Vanice = (crockford: string) : PrimeKey => {
   return crockford

@@ -1,7 +1,7 @@
-import encodeToPrime from "./encodeToPrime"
-import isPrime from "./isPrime"
-import isVanity from "./isVanity"
-import toEmojis from "./toEmojis"
+import encodeToPrime from "./encodeToPrime.ts"
+import isPrime from "./isPrime.ts"
+import isVanity from "./isVanity.ts"
+import toEmojis from "./toEmojis.ts"
 
 export type Prime = string
 export type PrimeKey = string
