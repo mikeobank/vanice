@@ -1,6 +1,6 @@
 # Vanice
 
-A character set and encoding for displaying public keys using an unambiguous alphabet and an additional emoji set. This allows for concise display of vanity names within public keys and brute force searching for any desired name.
+A character set and encoding for displaying public keys using an ambiguous alphabet plus an additional emoji set. This allows for concise display of vanity names within public keys with an additional fingerprint. Resulting in the possibility to brute force searching for any desired name.
 
 ## Character set
 | index | prime | secondary | emoji |
@@ -43,7 +43,7 @@ A character set and encoding for displaying public keys using an unambiguous alp
 - Generate Schnorr key pair
 - Encode public key to base32 prime characters (prime key)
 - Check if prime key starts with prime name
-When a match is found:
+#### When a match is found:
 - SHA256 digest prime key (hash)
 - Encode hash to base32 emojis 
 - Append the first n emojis to the vanity name (n = 10 - length(vanity name), minimum 3)
