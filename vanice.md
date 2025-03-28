@@ -100,3 +100,4 @@ When using XPubs derived from a seed, it's possible to outsource the searching o
 - Final character set
 - Final emoji set, plus order (indices)
 - Recommended length of fingerprint / total length (vanity name + fingerprint)
+- Registry. Preferably distributed, decentralized.
