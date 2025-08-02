@@ -11,6 +11,14 @@
 ]
 ```
 
+## Database fields
+- key: PrimeKey
+- signature: Signature
+- vanity_name: VanityName
+- content: String
+- datetime: Datetime
+- tombstone: Boolean?
+
 ## API Endpoints
 
 - write key, vanity name + value

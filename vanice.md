@@ -3,7 +3,7 @@
 A character set and encoding for displaying public keys using an ambiguous alphabet plus an additional emoji set. This allows for concise display of vanity names within public keys with an additional fingerprint. Resulting in the possibility to brute force searching for any desired name.
 
 ## Character set
-| index | prime | secondary | emoji |
+| index | primary | secondary | fingerprint |
 | ----- | ----- | --------- | ----- |
 | 0 | 0 | Oo_ | 😊 |
 | 1 | 1 | IiLl | 🖋️ | 
@@ -39,13 +39,13 @@ A character set and encoding for displaying public keys using an ambiguous alpha
 | 31 | Y | y | ⏰ |
 
 ## Computation
-- Convert vanity name to prime name
+- Convert vanity name to primary name
 - Generate Schnorr key pair
-- Encode public key to base32 prime characters (prime key)
-- Check if prime key starts with prime name
+- Encode public key to primary key using base 32 primary characters (the sign bit (0x02 or 0x03) is moved to the end)
+- Check if primary key starts with primary name
 #### When a match is found:
-- SHA256 digest prime key (hash)
-- Encode hash to base32 emojis 
+- SHA256 digest primary key (hash)
+- Encode hash to base 32 fingerprint 
 - Append the first n emojis to the vanity name (n = 10 - length(vanity name), minimum 3)
 
 ## Example
@@ -53,20 +53,20 @@ A character set and encoding for displaying public keys using an ambiguous alpha
 ```
 vanity name: Vani
 private key: Uint8Array(32) [
-   23, 230, 166, 137,  45, 132,  95, 107,
-  110, 232, 219,  95,  58,  47, 235,   8,
-   59, 248, 149, 240, 238, 154, 149,  86,
-  120, 206,  94, 134,  24, 228,  20,  32
+  111, 177,  9,   3, 170, 166,  77, 168,
+  121,  97, 98, 136, 231, 146, 199,   4,
+   48,  64, 75, 188,  12, 241,   2,  21,
+  196, 144, 56, 255, 255,  53,  50,  52
 ]
-public key: Uint8Array(32) [
-  226, 170,  19, 161, 220,  38, 102,
-   41, 161, 254, 231, 186,  65,  85,
-  195,  44, 151, 243, 241, 155, 236,
-   24, 210,  48, 167, 149, 148, 251,
-  229,  78, 112,  73
+public key: Uint8Array(33) [
+    3, 226, 170,  21, 111,  84,  61, 196,
+  160,  73, 204, 193,  18, 122, 107,  67,
+   50,  69, 162,  29,  41, 221,  14, 199,
+  218, 138, 161, 233, 158,  16, 104, 190,
+   94
 ]
-prime key: VAN178EV4SK2K8FXVXW42NE35JBY7VCUWGCD4C57JPAFQSAEE14G
-vanity key: Vani🚗☀️⭐👍
+primary key: VAN1AUTM7Q2A0JECR497MTT3692T4799UM7CFPMAM7MSV438QSF03
+fingerprinted name: Vani✈️⚡👍☁️🎵🙏
 ```
 
 ## Calculations
@@ -94,7 +94,7 @@ Calculations
 
 ## Outsource searching
 
-When using XPubs derived from a seed, it's possible to outsource the searching of vanity names without having to reveal the seed. 2,147,483,648 public keys can be derived per single XPub. And also 2,147,483,648 XPubs can be created from a single seed. That means on average one XPub will reveal any 6-letter name, and a single seed can contain any 12-letter name.
+When using XPubs derived from a seed, it's possible to outsource the searching of vanity names without having to reveal the seed. 2,147,483,648 public keys can be derived per single XPub. And also 2,147,483,648 XPubs can be created from a single seed. That means on average one XPub will reveal any 6-letter name, and a single seed could contain any 12-letter name.
 
 ## To be decided
 - Final character set
