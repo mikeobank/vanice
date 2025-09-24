@@ -21,11 +21,11 @@
 
 ## API Endpoints
 
-- write key, vanity name + value
-- retrieve key (by vanity name + (partial) fingerprint)
-- tombstone key
+- Write key, vanity name + value
+- Retrieve key (by vanity name + (partial) fingerprint)
+- Tombstone key
 
-- mine vanity name
+- Mine vanity name
   - via XPub, proof for empty XPub
   - how to escrow?
 
