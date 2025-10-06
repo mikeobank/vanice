@@ -51,7 +51,7 @@ A way to encode vanity names within public keys. Plus an additional fingerprint 
 - Generate key pair (Schnorr)
 - Encode public key to primary key using base 32 primary characters (the sign bit (0x02 or 0x03) is moved to the end)
 - Check if primary key starts with primary name
-**When a match is found**:
+**When a match is found**:  
 - SHA256 digest public key (hash)
 - Encode hash to base 32 fingerprint 
 - Append the first n emojis to the vanity name (n = 10 - length(vanity name), minimum 3)
