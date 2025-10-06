@@ -1,75 +1,62 @@
 # Vanice
 
-A character set and encoding for displaying public keys using an ambiguous alphabet plus an additional emoji set. This allows for concise display of vanity names within public keys with an additional fingerprint. Resulting in the possibility to brute force searching for any desired name.
+## Decentralized Naming
 
-## Character set
-| index | primary | secondary | fingerprint |
-| ----- | ----- | --------- | ----- |
-| 0 | 0 | Oo_ | 😊 |
-| 1 | 1 | IiLl | 🖋️ | 
-| 2 | 2 | Zz | 🍴 |
-| 3 | 3 | | ❤️ |
-| 4 | 4 | | 💪 |
-| 5 | 5 | | ⭐ |
-| 6 | 6 | | 👍 |
-| 7 | 7 | | 🙏 |
-| 8 | 8 | | ☃️ |
-| 9 | 9 | | 🏁 |
-| 10 | A | a | ✈️ |
-| 11 | B | b | ⚽ |
-| 12 | C | c | 🚗 |
-| 13 | D | d | 🌙 |
-| 14 | E | e | ⚡ |
-| 15 | F | f | 🔥 |
-| 16 | G | g | 🎁 |
-| 17 | H | h | 🏠 |
-| 18 | J | j | 🔑 |
-| 19 | K | k | 👑 |
-| 20 | M | m | 🎵 |
-| 21 | N | n | 💡 |
-| 22 | P | p | 🎉 |
-| 23 | Q | q | ☕ |
-| 24 | R | r | 🚀 |
-| 25 | S | s | ☀️ |
-| 26 | T | t | 🌲 |
-| 27 | U | u | ☂️ |
-| 28 | V | v | 🌸 |
-| 29 | W | w | 🦋 |
-| 30 | X | x | ☁️ |
-| 31 | Y | y | ⏰ |
+A way to encode vanity names within public keys. Plus an additional fingerprint encoded with emoji characters. Allowing for unique names, where duplicates (conflicting name + fingerprint pairs) will be exponentialy hard to find (brute force).
 
-## Computation
+### Example
+**Vanice☁️☕️❤️☁️**
+primary key: VAN1CEKTGGWMWMRBP2PCBR2MJMGKXMHS709JSVT7HTFTFSCJWN7G2
+fingerprint: ☁️☕️❤️☁️☁️😀👍☀️❤️🙏💡👑🔥☁️🍴☕️🔥🎄👍⭐✒️🙏⭐💪🏁❤️🎁☃️🍴✒️☁️☀️☁️⭐🏠🙏❤️🙏👑😀🔑🌙⭐🔑🔥☕️☁️⏰☁️🌙🎁🎁
+public key (Schnorr): 02e2aa163a7a843b4ed30bb0acc5e05495213f523938132cf3478e9fa7e592ed4f
+
+### Character set
+| index | primary | secondary | fingerprint | Unicode codepoint |
+| ----- | ------- | --------- | ----------- | ----------------- |
+| 0 | 0 | Oo_ | 😀 | U+1F600
+| 1 | 1 | IiLl | ✒️ | U+2712
+| 2 | 2 | Zz | 🍴 | U+1F374
+| 3 | 3 | | ❤️ | U+2764
+| 4 | 4 | | 💪 | U+1F4AA
+| 5 | 5 | | ⭐ | U+2B50
+| 6 | 6 | | 👍 | U+1F44D
+| 7 | 7 | | 🙏 | U+1F64F
+| 8 | 8 | | ☃️ | U+26C4	
+| 9 | 9 | | 🏁 | U+1F3C1
+| 10 | A | a | ✈️ | U+2708
+| 11 | B | b | ⚽ | U+26BD
+| 12 | C | c | 🚗 | U+1F697
+| 13 | D | d | 🌙 | U+1F319
+| 14 | E | e | ⚡️ | U+26A1	
+| 15 | F | f | 🔥 | U+1F525
+| 16 | G | g | 🎁 | U+1F381	
+| 17 | H | h | 🏠 | U+1F3E0
+| 18 | J | j | 🔑 | U+1F511
+| 19 | K | k | 👑 | U+1F451
+| 20 | M | m | 🎵 | U+1F3B5
+| 21 | N | n | 💡 | U+1F4A1	
+| 22 | P | p | 🎉 | U+1F389
+| 23 | Q | q | ☕️ | U+2615
+| 24 | R | r | 🚀 | U+1F680
+| 25 | S | s | ☀️ | U+2600
+| 26 | T | t | 🎄 | U+1F384
+| 27 | U | u | ☔️ | U+2614
+| 28 | V | v | 🌸 | U+1F338
+| 29 | W | w | 🦋 | U+1F98B
+| 30 | X | x | ☁️ | U+2601
+| 31 | Y | y | ⏰ | U+23F0	
+
+### Computation
 - Convert vanity name to primary name
-- Generate Schnorr key pair
+- Generate key pair (Schnorr)
 - Encode public key to primary key using base 32 primary characters (the sign bit (0x02 or 0x03) is moved to the end)
 - Check if primary key starts with primary name
-#### When a match is found:
-- SHA256 digest primary key (hash)
+**When a match is found**:
+- SHA256 digest public key (hash)
 - Encode hash to base 32 fingerprint 
 - Append the first n emojis to the vanity name (n = 10 - length(vanity name), minimum 3)
 
-## Example
-
-```
-vanity name: Vani
-private key: Uint8Array(32) [
-  111, 177,  9,   3, 170, 166,  77, 168,
-  121,  97, 98, 136, 231, 146, 199,   4,
-   48,  64, 75, 188,  12, 241,   2,  21,
-  196, 144, 56, 255, 255,  53,  50,  52
-]
-public key: Uint8Array(33) [
-    3, 226, 170,  21, 111,  84,  61, 196,
-  160,  73, 204, 193,  18, 122, 107,  67,
-   50,  69, 162,  29,  41, 221,  14, 199,
-  218, 138, 161, 233, 158,  16, 104, 190,
-   94
-]
-primary key: VAN1AUTM7Q2A0JECR497MTT3692T4799UM7CFPMAM7MSV438QSF03
-fingerprinted name: Vani✈️⚡👍☁️🎵🙏
-```
-
-## Calculations
+### Difficulty
 
 Calculations
 ------------
@@ -92,12 +79,14 @@ Calculations
 | 15     | 32<sup>15</sup> | 3.78e22
 | 16     | 32<sup>16</sup> | 1.21e24
 
-## Outsource searching
+### Outsource mining
 
 When using XPubs derived from a seed, it's possible to outsource the searching of vanity names without having to reveal the seed. 2,147,483,648 public keys can be derived per single XPub. And also 2,147,483,648 XPubs can be created from a single seed. That means on average one XPub will reveal any 6-letter name, and a single seed could contain any 12-letter name.
 
-## To be decided
+### To be decided
 - Final character set
 - Final emoji set, plus order (indices)
 - Recommended length of fingerprint / total length (vanity name + fingerprint)
-- Registry. Preferably distributed, decentralized.
+- Should the name or length of name be digested into the fingerprint?
+- Allow for ambiguous emojis?
+- Registries. Preferably distributed, decentralized. Web, Desktop, iOS, Android.
