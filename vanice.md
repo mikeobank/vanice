@@ -6,9 +6,9 @@ A way to encode vanity names within public keys. Plus an additional fingerprint 
 
 ### Example
 **Vanice☁️☕️❤️☁️**
-primary key: VAN1CEKTGGWMWMRBP2PCBR2MJMGKXMHS709JSVT7HTFTFSCJWN7G2
-fingerprint: ☁️☕️❤️☁️☁️😀👍☀️❤️🙏💡👑🔥☁️🍴☕️🔥🎄👍⭐✒️🙏⭐💪🏁❤️🎁☃️🍴✒️☁️☀️☁️⭐🏠🙏❤️🙏👑😀🔑🌙⭐🔑🔥☕️☁️⏰☁️🌙🎁🎁
-public key (Schnorr): 02e2aa163a7a843b4ed30bb0acc5e05495213f523938132cf3478e9fa7e592ed4f
+- primary key: VAN1CEKTGGWMWMRBP2PCBR2MJMGKXMHS709JSVT7HTFTFSCJWN7G2
+- fingerprint: ☁️☕️❤️☁️☁️😀👍☀️❤️🙏💡👑🔥☁️🍴☕️🔥🎄👍⭐✒️🙏⭐💪🏁❤️🎁☃️🍴✒️☁️☀️☁️⭐🏠🙏❤️🙏👑😀🔑🌙⭐🔑🔥☕️☁️⏰☁️🌙🎁🎁
+- public key (Schnorr): 02e2aa163a7a843b4ed30bb0acc5e05495213f523938132cf3478e9fa7e592ed4f
 
 ### Character set
 | index | primary | secondary | fingerprint | Unicode codepoint |
