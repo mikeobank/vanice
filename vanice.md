@@ -46,6 +46,8 @@ A way to encode vanity names within public keys. Plus an additional fingerprint 
 | 30 | X | x | ☁️ | U+2601
 | 31 | Y | y | ⏰ | U+23F0	
 
+Authoritative character definition: https://github.com/mikeobank/vanice-types/blob/main/lib/characters.json
+
 ### Computation
 - Convert vanity name to primary name
 - Generate key pair (Schnorr)
