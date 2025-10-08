@@ -2,7 +2,7 @@
 
 ## Decentralized Naming
 
-A way to encode vanity names within public keys. Plus an additional fingerprint encoded with emoji characters. Allowing for unique names, where duplicates (conflicting name + fingerprint pairs) will be exponentialy hard to find (brute force).
+A protocol to encode vanity names within public keys. Plus an additional fingerprint encoded using emoji characters. Allowing for unique names, where duplicates (conflicting pairs of name & fingerprint) will be exponentialy hard to brute force.
 
 ### Example
 **Vanice☁️☕️❤️☁️**
