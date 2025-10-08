@@ -85,10 +85,11 @@ Calculations
 
 When using XPubs derived from a seed, it's possible to outsource the searching of vanity names without having to reveal the seed. 2,147,483,648 public keys can be derived per single XPub. And also 2,147,483,648 XPubs can be created from a single seed. That means on average one XPub will reveal any 6-letter name, and a single seed could contain any 12-letter name.
 
-### To be decided
+### To be decided / To do
 - Final character set
 - Final emoji set, plus order (indices)
 - Recommended length of fingerprint / total length (vanity name + fingerprint)
+- A more complex, computationally harder derivation of fingerprints?
 - Should the name or length of name be digested into the fingerprint?
 - Allow for ambiguous emojis?
 - Registries. Preferably distributed, decentralized. Web, Desktop, iOS, Android.
