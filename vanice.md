@@ -93,3 +93,4 @@ When using XPubs derived from a seed, it's possible to outsource the searching o
 - Should the name or length of name be digested into the fingerprint?
 - Allow for ambiguous emojis?
 - Registries. Preferably distributed, decentralized. Web, Desktop, iOS, Android.
+- Namespacing, vouching, Web of Trust
