@@ -87,7 +87,7 @@ When using XPubs derived from a seed, it's possible to outsource the searching o
 
 ### To be decided / To do
 - Final character set
-- Final emoji set, plus order (indices)
+- Final emoji set, size, and order (indices)
 - Allow for ambiguous emojis?
 - Non Latin characters in names
 - Recommended length of fingerprint / total length (vanity name + fingerprint)
@@ -95,3 +95,4 @@ When using XPubs derived from a seed, it's possible to outsource the searching o
 - Should the name or length of name be digested into the fingerprint?
 - Registries. Preferably distributed, decentralized. Web, Desktop, iOS, Android.
 - Namespacing, vouching, Web of Trust
+- Support other cryptographic algorithms (crypto.subtle)
