@@ -83,7 +83,7 @@ Authoritative character definition: https://github.com/mikeobank/vanice-types/bl
 When using XPubs derived from a seed, it's possible to outsource the searching of vanity names without having to reveal the seed. 2,147,483,648 public keys can be derived per single XPub. And also 2,147,483,648 XPubs can be created from a single seed. That means on average one XPub will reveal any 6-letter name, and a single seed could contain any 12-letter name.
 
 ### Additional control characters
-#### Name separator Vanice: 
+#### Name separator 
 - | e.g.: Vani|CEKTGGWMWMRBP2PCBR2MJMGKXMHS709JSVT7HTFTFSCJWN7G2
 #### Web of trust
 - /\ e.g.: Vanice☁️☕️❤️☁️/Mike💡✈️❤️🦋☀️💡 or Mike💡✈️❤️🦋☀️💡\Vanice☁️☕️❤️☁️
