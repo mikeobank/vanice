@@ -1,17 +1,17 @@
 # Vanice
 
-To distribute name, primary key and arbitrary data, there will be 3 types of messages (CREATE, SET, TOMBSTONE). That can be reduced into a CRDT state.
+To distribute name, primary key and arbitrary data, there will be 3 types of operations (CREATE, SET, DELETE), that can be reduced into a CRDT state.
 
-## Messages
+## Operations
 
 - CREATE
 - SET
-- TOMBSTONE
+- DELETE
 
-### Create Message
+### Create Operation
 
 ```Typescript
-type CreateMessage = {
+type CreateOperation = {
   primaryKey: PrimaryKey
   name: Name
   type: "CREATE"
@@ -33,10 +33,10 @@ Vanice
 }
 ```
 
-### Set Message
+### Set Operation
 
 ```Typescript
-type SetMessage = {
+type SetOperation = {
   primaryKey: PrimaryKey
   name: Name
   previousHash: Hash
@@ -66,13 +66,13 @@ line 3
 }
 ```
 
-### Tombstone Message
+### Delete Operation
 ```Typescript
-type TombstoneMessage = {
+type DeleteOperation = {
   primaryKey: PrimaryKey
   name: Name
   previousHash: Hash
-  type: "TOMBSTONE"
+  type: "DELETE"
   hash: Hash
   signature: Signature
 }
@@ -81,14 +81,14 @@ type TombstoneMessage = {
 VAN1CEEP3TH0TB0WQEEU879EEVB9YA078MDDFC7NU4XQ21N8GWB03
 Vanice
 f968c6a46b3d872e0e94bbda1413fe749dd197e4d76499632006efee39963892
-TOMBSTONE
+DELETE
 ```
 ```JSON
 {
   "primaryKey": "VAN1CEEP3TH0TB0WQEEU879EEVB9YA078MDDFC7NU4XQ21N8GWB03",
   "name": "Vanice",
   "previousHash": "f968c6a46b3d872e0e94bbda1413fe749dd197e4d76499632006efee39963892",
-  "type": "TOMBSTONE",
+  "type": "DELETE",
   "hash": "d8608d2cd3d081bc62dbee4565967421138f167a0e4dc02c42e4afa3d2f118b7",
   "signature": "4dd230e2bb8d5cbda022ccdf3cc5fc96430bf5a1c20998efd7e4687fb4740f373978a45d0859f0b712e70fb0e167c50fe516026728e4127566e2b06306316918"
 }
@@ -116,7 +116,7 @@ TOMBSTONE
   ],
   "fingerprintDisplay": "🌙🌸☔️🎄🔑❤️☃️⭐🌙👑💡⭐☕️💡❤️🎄🚀🦋🔑⚡️🎁🦋🔥⭐💪☁️🏁☔️🎁🚗🚀🌙👑☀️💡🌸🙏🚗🔥☔️🎁🎄🎄👍🌙🏠👑❤️🎄🦋👑😀",
   "tombstone": true,
-  "messages": [
+  "operations": [
     {
       "primaryKey": "VAN1CEEP3TH0TB0WQEEU879EEVB9YA078MDDFC7NU4XQ21N8GWB03",
       "name": "Vanice",
@@ -137,7 +137,7 @@ TOMBSTONE
       "primaryKey": "VAN1CEEP3TH0TB0WQEEU879EEVB9YA078MDDFC7NU4XQ21N8GWB03",
       "name": "Vanice",
       "previousHash": "f968c6a46b3d872e0e94bbda1413fe749dd197e4d76499632006efee39963892",
-      "type": "TOMBSTONE",
+      "type": "DELETE",
       "hash": "d8608d2cd3d081bc62dbee4565967421138f167a0e4dc02c42e4afa3d2f118b7",
       "signature": "4dd230e2bb8d5cbda022ccdf3cc5fc96430bf5a1c20998efd7e4687fb4740f373978a45d0859f0b712e70fb0e167c50fe516026728e4127566e2b06306316918"
     }
