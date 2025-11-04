@@ -2,13 +2,13 @@
 
 ## Decentralized Naming
 
-A protocol to encode vanity names within public keys. Plus an additional fingerprint encoded using emoji characters. Allowing for unique names, where duplicates (conflicting pairs of name & fingerprint) will be exponentially hard to brute force.
+A protocol to encode vanity names within cryptographic agnostic public keys. Plus an additional fingerprint encoded using emoji characters. Allowing for unique names, where duplicates (conflicting pairs of name & fingerprint) will be exponentially hard to brute force.
 
 ### Example
-**Vanice☁️☕️❤️☁️**
-- primary key: VAN1CEKTGGWMWMRBP2PCBR2MJMGKXMHS709JSVT7HTFTFSCJWN7G2
-- fingerprint: ☁️☕️❤️☁️☁️😀👍☀️❤️🙏💡👑🔥☁️🍴☕️🔥🎄👍⭐✒️🙏⭐💪🏁❤️🎁☃️🍴✒️☁️☀️☁️⭐🏠🙏❤️🙏👑😀🔑🌙⭐🔑🔥☕️☁️⏰☁️🌙🎁🎁
-- public key (Schnorr): 02e2aa163a7a843b4ed30bb0acc5e05495213f523938132cf3478e9fa7e592ed4f
+**Alice☔️☀️✈️🍴🌸**
+- primary key: A11CE5Q3JWMQMUB9758KXQ6UJHHU2ANPYK6XW66DBMN54TVCT2CG2
+- fingerprint: ☔️☀️✈️🍴🌸🎄☃️🎁⚽✈️⭐☕️✒️☁️🦋💪⏰🙏☔️⚡️🙏🎁🌸🚗🔑💡🎄🔥🌸🌙😀🏠🎄🦋🙏⚡️🎁☕️😀🍴🏠🌸🦋⭐⭐🎵😀🌸✈️⚽🌸🎁
+- public key (Schnorr): 5042c716e397697a6d6939513f5cdb9463b12ab6fccdee98cd5d2a526b8cd099
 
 ### Character set
 | index | primary | secondary | fingerprint | Unicode codepoint |
@@ -48,10 +48,17 @@ A protocol to encode vanity names within public keys. Plus an additional fingerp
 
 Authoritative character definition: https://github.com/mikeobank/vanice-types/blob/main/lib/characters.json
 
+### Cryptographic schemes
+- 0: Ed25519 (crypto.subtle)
+- 1: ECDSA
+- 2: Schnorr
+
 ### Computation
 - Convert vanity name to primary name
-- Generate key pair (Schnorr)
-- Encode public key to primary key using base 32 primary characters (the sign bit (0x02 or 0x03) is moved to the end)
+- Generate key pair
+- Encode public key to primary key using base 32 primary characters 
+  - Cryptographic scheme index is appended
+  - ECDSA: The sign bit (0x02 or 0x03) of the compressed public key is moved to the end
 - Check if primary key starts with primary name  
 **When a match is found**:  
 - SHA256 digest public key (hash)
@@ -97,5 +104,5 @@ When using XPubs derived from a seed, it's possible to outsource the searching o
 - A more complex, computationally harder derivation of fingerprints?
 - Should the name or length of name be digested into the fingerprint?
 - Registries. Preferably distributed, decentralized. Web, Desktop, iOS, Android.
+- Anchor into Bitcoin blockchain
 - Namespacing, vouching, Web of Trust
-- Support other cryptographic algorithms (crypto.subtle)
