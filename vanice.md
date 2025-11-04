@@ -91,7 +91,7 @@ When using XPubs derived from a seed, it's possible to outsource the searching o
 
 ### Additional control characters
 #### Name separator 
-- `|` e.g.: Vani|CEKTGGWMWMRBP2PCBR2MJMGKXMHS709JSVT7HTFTFSCJWN7G2
+- `|` e.g.: Vanice|KTGGWMWMRBP2PCBR2MJMGKXMHS709JSVT7HTFTFSCJWN7G2
 #### Web of Trust
 - `/\` e.g.: Vanice☁️☕️❤️☁️/Mike💡✈️❤️🦋☀️💡 or Mike💡✈️❤️🦋☀️💡\Vanice☁️☕️❤️☁️
 
