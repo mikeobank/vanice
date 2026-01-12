@@ -114,7 +114,7 @@ DELETE
       "type": "DELETE"
     }
   ],
-  "relations": undefined,
+  "relations": [],
   "primaryKey": "VAN1CE4SFRPPXCC685G26CSDPXKYUWRJ8E95EB3CK49T362A9QS02",
   "name": "Vanice",
   "fingerprintDisplay": "⚽🦋🏁💡🔥✒️⭐⏰☁️🔥🎵⚽✈️⚡️🔑🔑🏠🎁☔️☕️🎄💪⭐☔️🏁🎄🔑⭐💪🔑🎵❤️💪✈️☁️🔥👍👍⭐☕️⭐❤️☔️🌙🙏🎁🏠🎄☀️🌙☀️😀",
